@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>منظومة قبول المدارس التكنولوجية التطبيقية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- شاشة تسجيل الدخول -->
+<div id="login" class="login-wrap">
+  <div class="login-logos">
+    <div class="ll-right">
+      <div class="logo-item moe"><span class="lg lg-moe" role="img" aria-label="وزارة التربية والتعليم — التكنولوجيا التطبيقية"></span></div>
+    </div>
+    <div class="ll-left">
+      <div class="logo-item ntss"><span class="lg lg-ntss" role="img" aria-label="NTSS"></span></div>
+      <div class="logo-item bda"><span class="lg lg-bda" role="img" aria-label="BDA EDU"></span></div>
+    </div>
+  </div>
+  <div class="login-card">
+    <h1>منظومة القبول</h1>
+    <p class="sub">امتحانات ومقابلات قبول المدارس التكنولوجية التطبيقية</p>
+
+    <div class="login-tabs">
+      <button class="ltab active" id="tab-staff">لجنة / إدارة</button>
+      <button class="ltab" id="tab-student">دخول الطالب</button>
+    </div>
+
+    <!-- نموذج اللجنة/الإدارة -->
+    <div id="form-staff">
+      <div class="field"><label>اسم المستخدم</label><input id="lg-user" autocomplete="username" placeholder="اسم المستخدم"></div>
+      <div class="field"><label>كلمة المرور</label><input id="lg-pass" type="password" autocomplete="current-password" placeholder="••••••••"></div>
+      <button class="btn btn-primary btn-block" id="lg-btn">دخول</button>
+      <div class="demo-note" id="demo-note"></div>
+    </div>
+
+    <!-- نموذج دخول الطالب -->
+    <div id="form-student" class="hidden">
+      <div class="field"><label>الرقم القومي (14 رقمًا)</label><input id="st-nid" inputmode="numeric" maxlength="14" placeholder="مثال: 30201011200123"></div>
+      <button class="btn btn-accent btn-block" id="st-btn">ابدأ الامتحان</button>
+      <div class="demo-note">أدخل رقمك القومي المسجَّل لدى المدرسة للدخول إلى الامتحان اللغوي.</div>
+    </div>
+  </div>
+</div>
+
+<!-- واجهة الطالب (ملء الشاشة) -->
+<div id="student" class="student-wrap hidden">
+  <div class="student-top">
+    <div class="student-brand">
+      <div class="logos-strip strip-h">
+        <span class="lg lg-moe ls-moe" role="img" aria-label="وزارة التربية والتعليم — التكنولوجيا التطبيقية"></span>
+        <span class="lg lg-ntss ls-ntss" role="img" aria-label="NTSS"></span>
+        <span class="lg lg-bda ls-bda" role="img" aria-label="BDA EDU"></span>
+      </div>
+      <span>الامتحان اللغوي — المدارس التكنولوجية التطبيقية</span>
+    </div>
+    <div class="student-who" id="student-who">—</div>
+  </div>
+  <div class="student-body" id="student-body"></div>
+</div>
+
+<!-- التطبيق -->
+<div id="app" class="shell hidden">
+  <aside class="sidebar">
+    <div class="brand" style="display:block">
+      <div class="logos-strip">
+        <span class="lg lg-moe ls-moe" role="img" aria-label="وزارة التربية والتعليم — التكنولوجيا التطبيقية"></span>
+        <div class="ls-row">
+          <span class="lg lg-ntss ls-ntss" role="img" aria-label="NTSS"></span>
+          <span class="lg lg-bda ls-bda" role="img" aria-label="BDA EDU"></span>
+        </div>
+      </div>
+      <div class="brand-name" style="color:#fff;font-size:13px;margin-top:10px;text-align:center;line-height:1.4">المدارس التكنولوجية التطبيقية</div>
+    </div>
+    <nav id="nav"></nav>
+    <div class="nav-spacer"></div>
+    <div class="nav-foot">
+      <div class="nav-user"><b id="nav-name">—</b><span id="nav-role">—</span></div>
+      <button class="nav-item" id="logout"><span class="ic">⎋</span> تسجيل الخروج</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h2 id="page-title">لوحة المعلومات</h2>
+      <span class="role-pill" id="page-role">—</span>
+    </div>
+    <div class="content" id="screen"></div>
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script src="config.js"></script>
+<script src="passages.js"></script>
+<script src="api.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
